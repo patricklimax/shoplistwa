@@ -1,0 +1,66 @@
+.mainBox {
+  width: 100%;
+  min-height: calc(100vh - 5rem);
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  padding: 10rem 0.5rem 4rem;
+
+  position: relative;
+}
+
+.sectionFixed {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 99;
+}
+
+.sectionFixed.top {
+  /* background-color: #93c5fd; */
+  height: 9.8rem; /* se esse tamanho diminuir, o padding do mainBox aumenta na mesma proporção*/
+  top: 0;
+}
+
+.sectionFixed.base {
+  /* background-color: #188a51; */
+  height: 3.8rem;
+  bottom: 0;
+}
+
+.sectionMain {
+  /* background-color: #ec4899; */
+  min-height: calc(100vh - 14rem);
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .mainBox {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mainBox {
+    max-width: 768px;
+  }
+
+  .sectionFixed {
+    padding-left: 8rem /* 128px */;
+    padding-right: 8rem /* 128px */;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainBox {
+    max-width: 64rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mainBox {
+    max-width: 70rem;
+  }
+}
