@@ -1,0 +1,27 @@
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 300;
+  color: #f1f5f9;
+}
+
+
+.navRight li a {
+  background-color: #1e293b;
+  text-decoration: none;
+  list-style: none;
+  transition: all 0.3s ease-in;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+@media (min-width: 768px) {
+  .navRight li a:hover {
+    background-color: #1e293b99;
+  }
+
+}

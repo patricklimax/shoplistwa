@@ -15,6 +15,10 @@
   left: 50%;
   top: calc(100%/3);
   transform: translate(-50%, calc(-100%/3));
+}
 
-  
+@media (min-width: 768px) {
+  .noProduct {
+    max-width: 50%;
+  }
 }

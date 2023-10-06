@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+body {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #07090E;
+  color: #94a3b8;
+  color: #cbd5e1;
+}
+
 .mainBox {
   width: 100%;
   min-height: calc(100vh - 5rem);
@@ -6,7 +16,7 @@
   flex-direction: column;
 
   margin: 0 auto;
-  padding: 10rem 0.5rem 4rem;
+  padding: 9rem 0.5rem 4rem;
 
   position: relative;
 }
@@ -16,23 +26,26 @@
   position: fixed;
   left: 0;
   z-index: 99;
+  padding: 0 .5rem;
+  display: flex;
+  background-color: #07090E;
 }
 
 .sectionFixed.top {
-  /* background-color: #93c5fd; */
-  height: 9.8rem; /* se esse tamanho diminuir, o padding do mainBox aumenta na mesma proporção*/
+  flex-direction: column;
   top: 0;
 }
 
 .sectionFixed.base {
-  /* background-color: #188a51; */
   height: 3.8rem;
   bottom: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .sectionMain {
   /* background-color: #ec4899; */
-  min-height: calc(100vh - 14rem);
+  min-height: calc(100vh - 13.2rem);
   position: relative;
 }
 
@@ -63,4 +76,19 @@
   .mainBox {
     max-width: 70rem;
   }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #4b545e;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #84cc16;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #77992c;
 }
