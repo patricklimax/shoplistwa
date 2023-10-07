@@ -1,6 +1,6 @@
-import { ProductProps } from '../types/product';
+import { ProductsProps } from '../types/product';
 
-export const Products: ProductProps[] = [
+export const Products: ProductsProps[] = [
   {
     id: '1',
     title: 'Primeiro Arroz',

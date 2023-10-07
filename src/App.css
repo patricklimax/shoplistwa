@@ -44,11 +44,50 @@ body {
 }
 
 .sectionMain {
-  /* background-color: #ec4899; */
   min-height: calc(100vh - 13.2rem);
   position: relative;
 }
 
+.modalCadastro {
+  width: 100%;
+  padding: 1.5rem/* 20px */;
+  border-radius: 0.25rem/* 4px */;
+  background-color: #1e293b;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  z-index: 100;  
+}
+
+.inputCadastro {
+  background-color: transparent;
+
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  color: #cbd5e1;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid #07090E;
+
+  padding: 0 .5rem;
+  height: 2.5rem; 
+}
+
+.inputCadastro:focus {
+  border-color: #84cc16;
+  border: 1px solid #84cc16;
+}
+
+.inputCadastro::placeholder {
+  color: #cbd5e1;
+}
+
+option {
+  background-color: #475569;
+}
+/* responsividade */
 @media (min-width: 640px) {
   .mainBox {
     max-width: 640px;
@@ -64,6 +103,11 @@ body {
     padding-left: 8rem /* 128px */;
     padding-right: 8rem /* 128px */;
   }
+
+  .modalCadastro {
+    width: 50%/* 832px */;
+  }
+
 }
 
 @media (min-width: 1024px) {
@@ -78,6 +122,7 @@ body {
   }
 }
 
+/* scrollBar */
 ::-webkit-scrollbar {
   width: 8px;
 }

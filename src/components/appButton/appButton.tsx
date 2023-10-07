@@ -1,4 +1,3 @@
-import './appButton.css'
 import { ReactNode } from "react";
 
 type Props = {
@@ -10,12 +9,8 @@ type Props = {
 export const AppButton = ({ onClick, children }: Props) => {
   return (
     <button
-      onClick={onClick}
-      className='buttonDefault'>
-      <span>
-        {children}
-      </span>
-
+      onClick={onClick}>
+      {children}
     </button>
   )
 }

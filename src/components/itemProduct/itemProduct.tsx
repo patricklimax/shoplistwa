@@ -1,7 +1,7 @@
-import { ProductProps } from '../../types/product'
+import { ProductsProps } from '../../types/product'
 
 export const ItemProduct = (
-  { id, title, amount, unit, category, check, edit, remove }: ProductProps) => {
+  { id, title, amount, unit, category, check, edit, remove }: ProductsProps) => {
   return (
     <li key={id} className='flex justify-between gap-2 items-center border border-slate-800 p-1 rounded text-base'>
       <div className='flex items-center gap-2'>

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type ProductProps = {
+export type ProductsProps = {
   id: string;
   title: string;
   isCompleted: boolean;
