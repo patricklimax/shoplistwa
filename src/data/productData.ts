@@ -4,7 +4,7 @@ export const Products: ProductsProps[] = [
   {
     id: '1',
     title: 'Primeiro Arroz',
-    isCompleted: true,
+    isChecked: true,
     amount: '10',
     unit: 'kg',
     category: 'Mercearia',
@@ -12,7 +12,7 @@ export const Products: ProductsProps[] = [
   {
     id: '2',
     title: 'Arroz',
-    isCompleted: true,
+    isChecked: true,
     amount: '20',
     unit: 'kg',
     category: 'Mercearia',
@@ -20,7 +20,7 @@ export const Products: ProductsProps[] = [
   {
     id: '3',
     title: 'Arroz',
-    isCompleted: true,
+    isChecked: true,
     amount: '30',
     unit: 'kg',
     category: 'Mercearia',
@@ -28,7 +28,7 @@ export const Products: ProductsProps[] = [
   {
     id: '4',
     title: 'Arroz',
-    isCompleted: true,
+    isChecked: true,
     amount: '40',
     unit: 'kg',
     category: 'Mercearia',
@@ -36,7 +36,7 @@ export const Products: ProductsProps[] = [
   {
     id: '5',
     title: 'Arroz',
-    isCompleted: true,
+    isChecked: true,
     amount: '50',
     unit: 'kg',
     category: 'Mercearia',
@@ -44,7 +44,7 @@ export const Products: ProductsProps[] = [
   {
     id: '6',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '60',
     unit: 'kg',
     category: 'Mercearia',
@@ -52,7 +52,7 @@ export const Products: ProductsProps[] = [
   {
     id: '7',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '70',
     unit: 'kg',
     category: 'Mercearia',
@@ -60,7 +60,7 @@ export const Products: ProductsProps[] = [
   {
     id: '8',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '80',
     unit: 'kg',
     category: 'Mercearia',
@@ -68,7 +68,7 @@ export const Products: ProductsProps[] = [
   {
     id: '9',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '90',
     unit: 'kg',
     category: 'Mercearia',
@@ -76,7 +76,7 @@ export const Products: ProductsProps[] = [
   {
     id: '10',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '10',
     unit: 'kg',
     category: 'Mercearia',
@@ -84,7 +84,7 @@ export const Products: ProductsProps[] = [
   {
     id: '11',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '11',
     unit: 'kg',
     category: 'Mercearia',
@@ -92,7 +92,7 @@ export const Products: ProductsProps[] = [
   {
     id: '12',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '12',
     unit: 'kg',
     category: 'Mercearia',
@@ -100,7 +100,7 @@ export const Products: ProductsProps[] = [
   {
     id: '13',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '13',
     unit: 'kg',
     category: 'Mercearia',
@@ -108,7 +108,7 @@ export const Products: ProductsProps[] = [
   {
     id: '14',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '14',
     unit: 'kg',
     category: 'Mercearia',
@@ -116,7 +116,7 @@ export const Products: ProductsProps[] = [
   {
     id: '15',
     title: 'Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '15',
     unit: 'kg',
     category: 'Mercearia',
@@ -124,7 +124,7 @@ export const Products: ProductsProps[] = [
   {
     id: '16',
     title: 'Último Arroz',
-    isCompleted: false,
+    isChecked: false,
     amount: '16',
     unit: 'kg',
     category: 'Mercearia',
