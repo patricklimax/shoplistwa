@@ -8,7 +8,7 @@ export const MenuRight = () => {
         <li>
           <a href="https://patricklima.vercel.app/" target='_blank'>
             <IconPointerPlus stroke={2} size={22} color='#84cc16' />
-            <p className='font-medium'>Mais APP</p>
+            <p className='font-medium'>Mais</p>
           </a>
         </li>
       </ul>

@@ -6,7 +6,6 @@ import { NotificationBox } from './components/appNotification/notificationBox'
 import { Notification } from './components/appNotification/notification'
 import { IconCheckbox, IconDeviceFloppy, IconEdit, IconPlus, IconSquare, IconTrashX, IconX } from '@tabler/icons-react'
 import { ProductsProps } from './types/product'
-import { ItemProduct } from './components/itemProduct/itemProduct'
 import { AppButton } from './components/appButton/appButton'
 import { NoProduct } from './components/noProduct/noProduct'
 
@@ -23,28 +22,33 @@ function App() {
   const [category, setCategory] = useState('')
 
   const productsLength = products.length
-  const productsFinish = products.filter(product => product.isCompleted === true).length
+  const productsFinish = products.filter(product => product.isChecked === true).length
 
   const [editButton, setEditButton] = useState(false)
 
+  //abre o modal para salvar um novo produto
   const openModalSave = () => {
     setShowModalSave(true)
     setEditButton(false)
   }
+
+  //fecha o modal
   const closeModalSave = () => {
     setShowModalSave(false)
-    setNewProduct('')
+    clearFields()
   }
 
+  // limpa inputs
   const clearFields = () => {
     setNewProduct('')
+    setId('')
     setAmount('')
     setUnit('')
     setCategory('')
-    setId('')
+    setEditButton(false)
   }
 
-  // adiciona item 
+  // adiciona um novo produto
   const addNewProduct = (e: FormEvent) => {
     if (newProduct === '') {
       alert('Obrigatório inserir um item.')
@@ -54,19 +58,19 @@ function App() {
       {
         id: crypto.randomUUID(),
         title: newProduct,
-        isCompleted: false,
+        isChecked: false,
         amount: amount,
         unit: unit,
         category: category
       }].sort((a: ProductsProps, b: ProductsProps): 1 | -1 => {
-        if (a.isCompleted < b.isCompleted) {
+        if (a.isChecked < b.isChecked) {
           return -1
         } else {
           return 1
         }
       }))
       clearFields()
-      setShowModalSave(false)
+      // setShowModalSave(false)
     }
   }
 
@@ -82,12 +86,12 @@ function App() {
         {
           id: crypto.randomUUID(),
           title: newProduct,
-          isCompleted: false,
+          isChecked: false,
           amount,
           unit: unit,
           category: category
         }].sort((a: ProductsProps, b: ProductsProps): 1 | -1 => {
-          if (a.isCompleted < b.isCompleted) {
+          if (a.isChecked < b.isChecked) {
             return -1
           } else {
             return 1
@@ -131,12 +135,12 @@ function App() {
     clearFields()
   }
 
-  // marca item como comprado
+  // marca item como no carrinho
   const productCart = (id: string) => {
     setProducts(products.map(products => (products.id === id
-      ? { ...products, isCompleted: !products.isCompleted }
+      ? { ...products, isChecked: !products.isChecked }
       : products)).sort((a: ProductsProps, b: ProductsProps): 1 | -1 => {
-        if (a.isCompleted < b.isCompleted) {
+        if (a.isChecked < b.isChecked) {
           return -1
         } else {
           return 1
@@ -145,6 +149,7 @@ function App() {
     setShowModalSave(false)
   }
 
+  //remove um produto da lista
   const removeProduct = (id: string) => {
     setProducts(products.filter(product => product.id !== id));
     setShowModalSave(false)
@@ -156,8 +161,6 @@ function App() {
       localStorage.setItem('PRODUCTS', JSON.stringify(products))
     }
   }, [products])
-
-  console.log(setProducts)
 
   return (
     <>
@@ -176,43 +179,47 @@ function App() {
         <section className='sectionMain'>
           <ul className='w-full md:w-3/4 mx-auto flex flex-col gap-2'>
             {products.map(product =>
-              <ItemProduct
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                amount={product.amount}
-                unit={product.unit}
-                category={product.category}
-                isCompleted={false}
-                check={product.isCompleted == true ?
-                  <AppButton onClick={() => productCart(product.id)}>
-                    <span className='p-2 rounded flex gap-1 items-center justify-center bg-slate-800 text-lime-500 transition-all  duration-500 ease-in md:hover:bg-emerald-800 md:hover:text-emerald-200'>
-                      <IconCheckbox stroke={2} size={22} />
-                    </span>
-                  </AppButton>
-                  :
-                  <AppButton onClick={() => productCart(product.id)}>
-                    <span className='p-2 rounded flex gap-1 items-center justify-center bg-slate-800 text-lime-500 transition-all  duration-500 ease-in md:hover:bg-emerald-800 md:hover:text-emerald-200'>
-                      <IconSquare stroke={2} size={22} />
-                    </span>
-                  </AppButton>
-                }
-                edit={
+              <li key={product.id} className='flex justify-between gap-2 items-center border border-slate-800 p-1 rounded text-base'>
+                <div className='flex items-center gap-2'>
+                  {product.isChecked == true ?
+                    <AppButton onClick={() => productCart(product.id)}>
+                      <span className='p-2 rounded flex gap-1 items-center justify-center bg-slate-800 text-lime-500 transition-all  duration-500 ease-in md:hover:bg-emerald-800 md:hover:text-emerald-200'>
+                        <IconCheckbox stroke={2} size={22} />
+                      </span>
+                    </AppButton>
+                    :
+                    <AppButton onClick={() => productCart(product.id)}>
+                      <span className='p-2 rounded flex gap-1 items-center justify-center bg-slate-800 text-lime-500 transition-all  duration-500 ease-in md:hover:bg-emerald-800 md:hover:text-emerald-200'>
+                        <IconSquare stroke={2} size={22} />
+                      </span>
+                    </AppButton>
+                  }
+                  <div className='flex flex-col gap-2'>
+                    <div className={['productDescription', product.isChecked ? 'inCart' : ''].join(' ')}>
+                      {product.title}
+                    </div>
+                    <div className='text-[12px] text-white leading-3'>
+                      {product.amount} - {product.unit}
+                    </div>
+                  </div>
+                </div>
+                <div className='flex items-center gap-2'>
+                  <div className='rounded font-semibold text-slate-600'>
+                    {product.category}
+                  </div>
                   <AppButton onClick={() => openModalEdit(product.id)}>
                     <span className='p-2 rounded flex gap-1 items-center justify-center bg-slate-800 text-lime-500 transition-all  duration-500 ease-in md:hover:bg-cyan-800 md:hover:text-cyan-200'>
                       <IconEdit stroke={2} size={22} />
                     </span>
                   </AppButton>
-                }
-                remove={
                   <AppButton onClick={() => removeProduct(product.id)}>
                     <span className='p-2 rounded flex gap-1 items-center justify-center bg-slate-800 text-lime-500 transition-all  duration-500 ease-in md:hover:bg-red-800 md:hover:text-red-200'>
                       <IconTrashX stroke={2} size={22} />
                     </span>
                   </AppButton>
-                }
-              />
-            )}
+                </div>
+              </li>)
+            }
           </ul>
           {productsLength <= 0 && <NoProduct />}
         </section>
@@ -229,10 +236,18 @@ function App() {
         </section>
 
         {showModalSave == true &&
-          <div className='modalCadastro text-center'>
-            <h1 className='bg-[#07090e] p-2 mb-2 rounded text-lime-500 font-semibold'>
-              {editButton ? 'Editar Produto' : 'Novo Produto'}
-            </h1>
+          <div className='modalCadastro'>
+            <div className='mb-2 flex items-center justify-between gap-2'>
+              <h1 className='bg-[#07090e] p-2 rounded text-lime-500 font-semibold w-full uppercase'>
+                {editButton ? 'Editar Produto' : 'Novo Produto'}
+              </h1>
+              <AppButton onClick={closeModalSave} >
+                <span
+                  className='p-2 rounded flex gap-1 items-center justify-center bg-red-600 transition-all  duration-500 ease-in md:hover:bg-red-800 md:hover:text-red-200'>
+                  <IconX stroke={2} size={22} />
+                </span>
+              </AppButton>
+            </div>
             <div className='flex flex-col gap-2'>
               <input
                 className='inputCadastro w-full rounded'

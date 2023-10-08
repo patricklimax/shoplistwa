@@ -26,7 +26,7 @@ body {
   position: fixed;
   left: 0;
   z-index: 99;
-  padding: 0 .5rem;
+  /* padding: 0 .5rem; */
   display: flex;
   background-color: #07090E;
 }
@@ -57,7 +57,10 @@ body {
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 0);
-  z-index: 100;  
+  z-index: 100;
+  text-align: center;
+  border: 1px solid transparent;
+  border-bottom: 0;
 }
 
 .inputCadastro {
@@ -87,6 +90,15 @@ body {
 option {
   background-color: #475569;
 }
+
+.productDescription {
+  line-height: .75rem/* 12px */;
+}
+
+.productDescription.inCart {
+  text-decoration: 1px line-through #cbd5e1 ;
+}
+
 /* responsividade */
 @media (min-width: 640px) {
   .mainBox {
@@ -106,6 +118,8 @@ option {
 
   .modalCadastro {
     width: 50%/* 832px */;
+    border: 1px solid #84cc16;
+    border-bottom: 0;
   }
 
 }

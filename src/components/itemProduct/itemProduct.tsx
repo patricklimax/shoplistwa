@@ -7,8 +7,12 @@ export const ItemProduct = (
       <div className='flex items-center gap-2'>
         {check}
         <div className='flex flex-col gap-2'>
-          <div className='text-base leading-3'>{title}</div>
-          <div className='text-[12px] text-white leading-3'>{amount} - {unit}</div>
+          <div className='text-base leading-3'>
+            {title}
+          </div>
+          <div className='text-[12px] text-white leading-3'>
+            {amount} - {unit}
+          </div>
         </div>
       </div>
       <div className='flex items-center gap-2'>

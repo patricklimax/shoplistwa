@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 export type ProductsProps = {
   id: string;
   title: string;
-  isCompleted: boolean;
+  isChecked: boolean;
   amount: string;
   unit: string;
   category: string;
